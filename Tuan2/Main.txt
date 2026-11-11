@@ -1,0 +1,36 @@
+package Huy25684371
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        SinhVien sv1 = new SinhVien(11111111, "Nguyen Van A", 8.5f, 7.5f);
+        SinhVien sv2 = new SinhVien(22222222, "Tran Thi B", 6.0f, 9.0f);
+        SinhVien sv3 = new SinhVien();
+
+        System.out.println("=== NHẬP THÔNG TIN SINH VIÊN 3 ===");
+        System.out.print("Nhập mã số sinh viên: ");
+        sv3.setMaSV(sc.nextInt());
+        sc.nextLine();
+
+        System.out.print("Nhập họ tên: ");
+        sv3.setHoTen(sc.nextLine());
+
+        System.out.print("Nhập điểm lý thuyết: ");
+        sv3.setDiemLT(sc.nextFloat());
+
+        System.out.print("Nhập điểm thực hành: ");
+        sv3.setDiemTH(sc.nextFloat());
+
+        System.out.println("\n" + SinhVien.getTieuDe());
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println(sv1);
+        System.out.println(sv2);
+        System.out.println(sv3);
+
+        sc.close();
+    }
+}

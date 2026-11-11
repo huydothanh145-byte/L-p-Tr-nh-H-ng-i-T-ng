@@ -1,0 +1,70 @@
+package 
+
+
+public class SinhVien {
+    private int maSV;
+    private String hoTen;
+    private float diemLT;
+    private float diemTH;
+
+    public SinhVien() {
+        this.maSV = 0;
+        this.hoTen = "Chưa có tên";
+        this.diemLT = 0.0f;
+        this.diemTH = 0.0f;
+    }
+
+    public SinhVien(int maSV, String hoTen, float diemLT, float diemTH) {
+        setMaSV(maSV);
+        setHoTen(hoTen);
+        setDiemLT(diemLT);
+        setDiemTH(diemTH);
+    }
+
+    public int getMaSV() {
+        return maSV;
+    }
+
+    public void setMaSV(int maSV) {
+        this.maSV = (maSV > 0) ? maSV : 0;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.hoTen = (hoTen != null && !hoTen.trim().isEmpty()) ? hoTen.trim() : "Chưa có tên";
+    }
+
+    public float getDiemLT() {
+        return diemLT;
+    }
+
+    public void setDiemLT(float diemLT) {
+        this.diemLT = (diemLT >= 0.0f && diemLT <= 10.0f) ? diemLT : 0.0f;
+    }
+
+    public float getDiemTH() {
+        return diemTH;
+    }
+
+    public void setDiemTH(float diemTH) {
+        this.diemTH = (diemTH >= 0.0f && diemTH <= 10.0f) ? diemTH : 0.0f;
+    }
+
+    public float tinhDiemTB() {
+        return (diemLT + diemTH) / 2.0f;
+    }
+
+    public static String getTieuDe() {
+        return String.format("%-10s %-25s %10s %10s %10s", 
+                "Mã SV", "Họ và Tên", "Điểm LT", "Điểm TH", "Điểm TB");
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-10d %-25s %10.2f %10.2f %10.2f", 
+                maSV, hoTen, diemLT, diemTH, tinhDiemTB());
+    }
+}
